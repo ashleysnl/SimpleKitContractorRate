@@ -1,0 +1,170 @@
+name: "Contractor Effective Hourly Rate Calculator"
+slug: "contractor-effective-hourly-rate-calculator"
+repo_name: "contractor-effective-hourly-rate-calculator"
+subdomain: "contractorrate"
+
+seo:
+  page_title: "Contractor Effective Hourly Rate Calculator | Compare Contract Pay"
+  meta_description: "Estimate your real contractor pay after unpaid vacation and self-paid benefits. Compare nominal annual income, adjusted annual income, and effective hourly rate."
+  h1: "Contractor Effective Hourly Rate Calculator"
+
+calculator:
+  description: "Estimate your true contractor pay by converting a stated hourly rate into nominal annual income, adjusted annual income, and an effective hourly rate after unpaid vacation and self-paid benefits."
+  formula_notes: |-
+    Base annual income is calculated as hourly rate multiplied by hours per day, days per week, and weeks per year.
+
+    Nominal annual income = hourly_rate × hours_per_day × days_per_week × weeks_per_year
+
+    If vacation is unpaid, unpaid vacation weeks reduce the number of paid weeks.
+
+    Paid weeks = weeks_per_year - unpaid_vacation_weeks when vacation is unpaid
+    Paid weeks = weeks_per_year when vacation is paid
+
+    Adjusted annual income after unpaid vacation = hourly_rate × hours_per_day × days_per_week × paid_weeks
+
+    If benefits are self-paid, the annual benefits cost is subtracted from adjusted annual income after unpaid vacation.
+
+    Adjusted annual income after benefits = adjusted annual income after unpaid vacation - annual_benefits_cost when benefits are self-paid
+    Adjusted annual income after benefits = adjusted annual income after unpaid vacation when benefits are employer-paid
+
+    Effective hourly rate is based on full-year standard working hours so different contracts can be compared on a like-for-like basis.
+
+    Full-year standard working hours = hours_per_day × days_per_week × weeks_per_year
+    Effective hourly rate = adjusted annual income after benefits ÷ full-year standard working hours
+
+    Vacation cost annual = nominal annual income - adjusted annual income after unpaid vacation
+    Benefits cost annual = annual_benefits_cost when benefits are self-paid, otherwise 0
+    Total compensation reduction = vacation cost annual + benefits cost annual
+
+inputs:
+  - id: "hourly_rate"
+    label: "Stated hourly rate"
+    type: "currency"
+    default: 100
+    min: 0
+    step: 1
+    helper_text: "Enter the contract rate you are being offered before vacation or benefits adjustments."
+  - id: "hours_per_day"
+    label: "Hours per day"
+    type: "number"
+    default: 8
+    min: 1
+    max: 24
+    step: 0.5
+    helper_text: "Use your typical paid workday length."
+  - id: "days_per_week"
+    label: "Days per week"
+    type: "number"
+    default: 5
+    min: 1
+    max: 7
+    step: 0.5
+    helper_text: "Use your usual weekly schedule."
+  - id: "weeks_per_year"
+    label: "Weeks per year"
+    type: "number"
+    default: 52
+    min: 1
+    max: 52
+    step: 1
+    helper_text: "A full standard year is 52 weeks."
+  - id: "vacation_is_paid"
+    label: "Vacation is paid"
+    type: "toggle"
+    default: false
+    helper_text: "Turn this on if your contract pays you during vacation time."
+  - id: "unpaid_vacation_weeks"
+    label: "Unpaid vacation weeks"
+    type: "number"
+    default: 2
+    min: 0
+    max: 52
+    step: 0.5
+    helper_text: "Only matters when vacation is unpaid. If vacation is paid, this should be treated as 0 in the calculation."
+  - id: "benefits_are_employer_paid"
+    label: "Benefits are employer-paid"
+    type: "toggle"
+    default: false
+    helper_text: "Turn this on if health, dental, insurance, or similar benefits are covered for you."
+  - id: "annual_benefits_cost"
+    label: "Annual benefits cost"
+    type: "currency"
+    default: 5000
+    min: 0
+    step: 100
+    helper_text: "Only matters when benefits are self-paid. Include the yearly cost of benefits you must cover yourself."
+
+outputs:
+  - id: "nominal_annual_income"
+    label: "Nominal annual income"
+    format: "currency"
+    emphasis: "primary"
+  - id: "adjusted_annual_income_after_unpaid_vacation"
+    label: "Adjusted annual income after unpaid vacation"
+    format: "currency"
+  - id: "adjusted_annual_income_after_benefits"
+    label: "Adjusted annual income after benefits"
+    format: "currency"
+    emphasis: "primary"
+  - id: "effective_hourly_rate"
+    label: "Effective hourly rate"
+    format: "currency"
+    emphasis: "primary"
+  - id: "vacation_cost_annual"
+    label: "Annual cost of unpaid vacation"
+    format: "currency"
+  - id: "benefits_cost_annual"
+    label: "Annual cost of self-paid benefits"
+    format: "currency"
+  - id: "total_compensation_reduction"
+    label: "Total compensation reduction"
+    format: "currency"
+  - id: "paid_weeks"
+    label: "Paid weeks"
+    format: "number"
+  - id: "full_year_standard_hours"
+    label: "Full-year standard working hours"
+    format: "number"
+
+content:
+  intro: |-
+    Contractor rates can look better than they really are at first glance. A posted hourly rate often does not tell you what happens when vacation is unpaid or when you need to cover your own health, dental, insurance, or other benefits.
+
+    This calculator helps you turn a stated contract rate into a more realistic annual income and effective hourly rate. It shows the hidden cost of unpaid time off, the impact of self-paid benefits, and why two contracts with the same hourly rate may not be equal once real-world costs are included.
+
+    Use it as a quick planning tool when reviewing freelance, consulting, or independent contractor offers. It is especially helpful when one contract includes paid vacation or employer-covered benefits and another one does not.
+  result_explanation: |-
+    Your stated hourly rate is the headline number in the contract. Your effective hourly rate is the more practical number because it reflects what you actually keep after unpaid vacation and self-paid benefits are accounted for across a full working year.
+
+    If vacation is unpaid, each unpaid week lowers your annual income even if the posted hourly rate stays the same. This makes the annual cost of unpaid vacation an important comparison point when reviewing offers.
+
+    If benefits are self-paid, those costs reduce real compensation further. A contract with a slightly lower posted hourly rate can still be better overall if it includes paid vacation or employer-paid benefits that another contract does not.
+
+    When comparing offers, focus on adjusted annual income after benefits and the effective hourly rate. Those figures make it easier to compare contracts fairly on a like-for-like basis instead of relying on the posted rate alone.
+
+faq:
+  - question: "What is an effective hourly rate?"
+    answer: "An effective hourly rate is your adjusted annual compensation divided by your full-year standard working hours. It helps you compare contract offers more fairly because it reflects unpaid time off and self-paid benefits instead of just the posted hourly rate."
+  - question: "How do unpaid vacation weeks affect contractor pay?"
+    answer: "If your vacation is unpaid, the number of paid weeks in the year goes down. That lowers your annual income even though your hourly rate does not change, which means your effective hourly rate also drops."
+  - question: "How do self-paid benefits affect my contract rate?"
+    answer: "If you pay for your own benefits, those costs come out of your compensation. A contract that looks strong on paper can become less attractive after health, dental, insurance, or similar annual costs are subtracted."
+  - question: "Is a higher hourly contract rate always better?"
+    answer: "No. A higher posted rate is not always the better offer if another contract includes paid vacation, employer-paid benefits, or other support that reduces your out-of-pocket costs and protects your annual income."
+  - question: "How can I compare two contractor offers fairly?"
+    answer: "Start by converting both offers into adjusted annual income and effective hourly rate using the same hours, days, and weeks assumptions. That gives you a like-for-like comparison that is easier to evaluate than headline hourly rates alone."
+  - question: "Should I factor unpaid vacation into my hourly rate?"
+    answer: "Yes. If you expect unpaid time off during the year, it is useful to build that into your target rate. Otherwise your actual annual income may come in lower than you expected."
+  - question: "Should contractors account for benefits when comparing jobs?"
+    answer: "Yes. Benefits can materially change the value of a contract. If one opportunity requires you to pay for your own coverage and another does not, the difference should be part of your pay comparison."
+  - question: "Why use full-year standard hours for the effective hourly rate?"
+    answer: "Using full-year standard hours creates a consistent baseline for comparing offers. It shows how unpaid vacation and benefits reduce the practical value of a stated rate across a normal working year."
+
+related_tools:
+  - "Budget Planner"
+  - "Canadian Take Home Pay Calculator"
+  - "Net Worth Calculator"
+  - "Savings Goal Calculator"
+  - "Loan Calculator"
+
+disclaimer: "This calculator is for planning and comparison purposes only and does not provide tax, legal, employment, or financial advice. Real contracts may also include overtime, bonuses, statutory holidays, taxes, reimbursable expenses, equipment costs, incorporation costs, and other terms that affect take-home compensation."
