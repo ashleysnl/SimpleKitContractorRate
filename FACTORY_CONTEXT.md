@@ -16,6 +16,7 @@ This repo was created by the local SimpleKit App Factory.
 - Final QA prompt: `/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/prompts/final-qa-prompt.md`
 - Landing page update prompt: `/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/prompts/landing-page-update-prompt.md`
 - Style guide: `/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/references/style-guide/simplekit-calculator-style-guide.md`
+- Ashley preference profile: `/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/references/preferences/ashley-calculator-build-preferences.md`
 - Launch checklist: `/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/docs/LAUNCH_CHECKLIST.md`
 
 ## Notes

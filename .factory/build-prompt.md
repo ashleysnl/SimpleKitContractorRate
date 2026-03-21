@@ -12,8 +12,9 @@ Use this file as the local handoff when starting work on the calculator repo.
 
 1. [prompts/master-codex-build-prompt.md](/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/prompts/master-codex-build-prompt.md)
 2. [references/style-guide/simplekit-calculator-style-guide.md](/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/references/style-guide/simplekit-calculator-style-guide.md)
-3. [docs/LAUNCH_CHECKLIST.md](/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/docs/LAUNCH_CHECKLIST.md)
-4. [calculator-spec.yaml](/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/workspaces/rate-calculator/calculator-spec.yaml)
+3. [references/preferences/ashley-calculator-build-preferences.md](/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/references/preferences/ashley-calculator-build-preferences.md)
+4. [docs/LAUNCH_CHECKLIST.md](/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/docs/LAUNCH_CHECKLIST.md)
+5. [calculator-spec.yaml](/Users/AshleySkinner/Documents/00_Engineering/04_Code/50_SimpleKit App Factory/workspaces/rate-calculator/calculator-spec.yaml)
 
 ## Helpful References
 
@@ -25,7 +26,7 @@ Use this file as the local handoff when starting work on the calculator repo.
 
 Tell Codex:
 
-> Build this SimpleKit calculator using the calculator spec in this repo, while following the master build prompt, style guide, and launch checklist referenced here. Treat the spec as the source of truth, preserve the existing template architecture, and note any assumptions before finishing.
+> Build this SimpleKit calculator using the calculator spec in this repo, while following the master build prompt, style guide, Ashley preference profile, and launch checklist referenced here. Treat the spec as the source of truth, preserve the existing template architecture, and note any assumptions before finishing.
 
 ## Local Notes
 

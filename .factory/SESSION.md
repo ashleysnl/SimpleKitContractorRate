@@ -15,6 +15,7 @@ Build the calculator repo from the current spec with the existing SimpleKit temp
 - `calculator-spec.yaml` in the calculator repo
 - `prompts/master-codex-build-prompt.md` in the factory repo
 - `references/style-guide/simplekit-calculator-style-guide.md` in the factory repo
+- `references/preferences/ashley-calculator-build-preferences.md` in the factory repo
 - `docs/LAUNCH_CHECKLIST.md` in the factory repo
 
 ## Notes

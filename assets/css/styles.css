@@ -395,7 +395,7 @@ body {
   display: grid;
   gap: 6px;
   align-content: start;
-  max-width: 72ch;
+  max-width: 68ch;
 }
 
 .question-copy h3,
@@ -452,7 +452,7 @@ body {
 
 .form-field {
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .form-field span {
@@ -461,6 +461,7 @@ body {
 
 .form-field small {
   color: var(--starter-muted);
+  font-size: 0.96rem;
 }
 
 .form-field input,
@@ -669,6 +670,11 @@ body {
 
 .panel-header summary::-webkit-details-marker {
   display: none;
+}
+
+.panel-header p,
+.question-copy p {
+  line-height: 1.45;
 }
 
 .related-card {

@@ -42,11 +42,14 @@
     form: "#rateForm",
     stepProgressFill: "#stepProgressFill",
     progressLabel: "#progressLabel",
+    wizardViewport: ".wizard-viewport",
     wizardTrack: "#wizardTrack",
     questionSteps: ".wizard-slide",
     validationMessage: "#validationMessage",
     resultsPanel: "#resultsPanel",
     breakdownPanel: "#breakdownPanel",
+    resultsPanelDetails: "#resultsPanel details",
+    breakdownPanelDetails: "#breakdownPanel details",
     resultsStatus: "#resultsStatus",
     featuredResults: "#featuredResults",
     resultCards: "#resultCards",
@@ -204,6 +207,7 @@
   function renderStepper() {
     const progressFill = document.querySelector(selectors.stepProgressFill);
     const label = document.querySelector(selectors.progressLabel);
+    const viewport = document.querySelector(selectors.wizardViewport);
     const steps = document.querySelectorAll(selectors.questionSteps);
     const track = document.querySelector(selectors.wizardTrack);
     if (!progressFill || !label) {
@@ -219,7 +223,8 @@
     });
 
     if (track) {
-      track.style.transform = `translateX(-${state.currentStep * 100}%)`;
+      const viewportWidth = viewport ? viewport.clientWidth : 0;
+      track.style.transform = `translateX(-${state.currentStep * viewportWidth}px)`;
     }
   }
 
@@ -440,12 +445,42 @@
   function renderResultsVisibility() {
     const resultsPanel = document.querySelector(selectors.resultsPanel);
     const breakdownPanel = document.querySelector(selectors.breakdownPanel);
+    const resultsPanelDetails = document.querySelector(selectors.resultsPanelDetails);
+    const breakdownPanelDetails = document.querySelector(selectors.breakdownPanelDetails);
     if (!resultsPanel || !breakdownPanel) {
       return;
     }
 
-    resultsPanel.hidden = !state.resultsRevealed;
-    breakdownPanel.hidden = !state.resultsRevealed;
+    if (!state.resultsRevealed) {
+      resultsPanel.hidden = true;
+      breakdownPanel.hidden = true;
+
+      if (resultsPanelDetails) {
+        resultsPanelDetails.open = false;
+        resultsPanelDetails.removeAttribute("open");
+      }
+
+      if (breakdownPanelDetails) {
+        breakdownPanelDetails.open = false;
+        breakdownPanelDetails.removeAttribute("open");
+      }
+      return;
+    }
+
+    resultsPanel.hidden = false;
+    breakdownPanel.hidden = false;
+    resultsPanel.removeAttribute("hidden");
+    breakdownPanel.removeAttribute("hidden");
+
+    if (resultsPanelDetails) {
+      resultsPanelDetails.open = true;
+      resultsPanelDetails.setAttribute("open", "");
+    }
+
+    if (breakdownPanelDetails) {
+      breakdownPanelDetails.open = true;
+      breakdownPanelDetails.setAttribute("open", "");
+    }
   }
 
   function syncUrl() {
@@ -543,7 +578,11 @@
   function revealResults() {
     state.resultsRevealed = true;
     render();
-    document.querySelector(selectors.resultsPanel)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.querySelector(selectors.resultsPanel)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   }
 
   function render() {
@@ -616,9 +655,14 @@
     bindStepActions();
 
     document.querySelector(selectors.loadSampleBtn)?.addEventListener("click", () => {
-      setFormState({ ...SAMPLE_STATE, currentStep: 0, resultsRevealed: false });
-      state = { ...SAMPLE_STATE, currentStep: 0, resultsRevealed: false };
+      setFormState({ ...SAMPLE_STATE, currentStep: TOTAL_STEPS, resultsRevealed: true });
+      state = { ...SAMPLE_STATE, currentStep: TOTAL_STEPS, resultsRevealed: true };
       render();
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          document.querySelector(selectors.resultsPanel)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
     });
 
     document.querySelector(selectors.resetBtn)?.addEventListener("click", () => {
@@ -636,6 +680,7 @@
     renderRelatedTools();
     bindEvents();
     render();
+    window.addEventListener("resize", renderStepper);
   }
 
   initialize();
