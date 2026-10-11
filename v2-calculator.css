@@ -29,3 +29,5 @@
  .sk-v2[data-v2-calculator="contractor-effective-hourly-rate-calculator"] :where(.form-grid,.field-grid,.advanced-grid,.input-grid,.salary-grid,.calculator-grid,.group-grid,.hero-grid,.settings-inline-grid) { grid-template-columns:minmax(0,1fr); }
  .sk-v2[data-v2-calculator="contractor-effective-hourly-rate-calculator"] :where(.form-actions,.toolbar-actions,.action-group,.wizard-actions,.backup-actions) { flex-wrap:wrap; }
 }
+
+.sk-v2[data-v2-calculator="contractor-effective-hourly-rate-calculator"] .sr-only-input { min-width:0; min-height:0; }
