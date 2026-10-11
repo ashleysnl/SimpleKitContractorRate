@@ -105,13 +105,23 @@
       supportSecondaryLabel: "Browse more tools"
     };
   </script>
+
+  <!-- Shared V2 components, bundled locally by the portable site build. -->
+  <link rel="stylesheet" href="https://core.simplekit.app/v2/foundations.css">
+  <link rel="stylesheet" href="https://core.simplekit.app/v2/system.css">
+  <link rel="stylesheet" href="https://core.simplekit.app/v2/calculators.css">
+  <link rel="stylesheet" href="./v2-calculator.css">
+  <script defer src="https://core.simplekit.app/v2/shell.js"></script>
 </head>
-<body>
-  <a class="skip-link" href="#mainContent">Skip to content</a>
+<body class="sk-v2" data-v2-system="1" data-v2-calculator="contractor-effective-hourly-rate-calculator" data-v2-family="income-planning">
+<a class="v2s-skip v2-button" href="#mainContent">Skip to content</a>
+<header class="v2s-header"><div class="v2s-wrap v2s-header-inner"><a class="v2s-brand" href="/" aria-label="SimpleKit home"><svg aria-hidden="true" focusable="false"><use href="https://core.simplekit.app/v2/icons/sprite.svg#calculator"></use></svg>SimpleKit</a><button type="button" class="v2s-menu" data-v2s-menu aria-controls="v2-contractor-effective-hourly-rate-calculator-nav" aria-expanded="false" hidden>Menu</button><nav class="v2s-nav" id="v2-contractor-effective-hourly-rate-calculator-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/tools/" aria-current="page">Tools</a><a href="/learn/">Learn</a><a href="/about/">About</a><a href="/support/">Support</a></nav></div></header>
+
+  
 
   <div class="page-shell tool-shell">
-    <header class="hero tool-hero" aria-labelledby="pageTitle">
-      <div data-simplekit-header></div>
+    <header class="hero tool-hero v2c-hero" aria-labelledby="pageTitle">
+      
 
       <div class="hero-copy">
         <p class="eyebrow">Contractor Pay Tool</p>
@@ -148,8 +158,8 @@
       </aside>
     </header>
 
-    <main id="mainContent" class="page-flow">
-      <section class="panel trust-panel" aria-labelledby="trustHeading">
+    <main id="mainContent" class="page-flow v2c-main" tabindex="-1">
+      <section class="panel trust-panel v2c-surface" aria-labelledby="trustHeading">
         <div class="panel-header">
           <div>
             <p class="section-kicker">Why this helps</p>
@@ -176,7 +186,7 @@
         </div>
       </section>
 
-      <section id="calculatorSection" class="panel calculator-panel scroll-target-section" aria-labelledby="calculatorHeading">
+      <section id="calculatorSection" class="panel calculator-panel scroll-target-section v2c-surface" aria-labelledby="calculatorHeading">
         <div class="panel-header">
           <div>
             <p class="section-kicker">Guided calculator</p>
@@ -186,7 +196,7 @@
         </div>
 
         <div class="calculator-layout">
-          <form id="rateForm" class="calculator-card" novalidate>
+          <form id="rateForm" class="calculator-card v2c-card" novalidate>
             <div class="form-toolbar">
               <div>
                 <strong>Start simple</strong>
@@ -200,7 +210,7 @@
 
             <section id="validationMessage" class="validation-banner" aria-live="polite" hidden></section>
 
-            <section class="flow-card" aria-labelledby="contractHeading">
+            <section class="flow-card v2c-card" aria-labelledby="contractHeading">
               <div class="flow-card-head">
                 <span class="step-badge">1</span>
                 <div>
@@ -243,7 +253,7 @@
               </div>
             </section>
 
-            <section class="flow-card" aria-labelledby="vacationHeading">
+            <section class="flow-card v2c-card" aria-labelledby="vacationHeading">
               <div class="flow-card-head">
                 <span class="step-badge">2</span>
                 <div>
@@ -265,7 +275,7 @@
               </label>
             </section>
 
-            <section class="flow-card" aria-labelledby="benefitsHeading">
+            <section class="flow-card v2c-card" aria-labelledby="benefitsHeading">
               <div class="flow-card-head">
                 <span class="step-badge">3</span>
                 <div>
@@ -290,7 +300,7 @@
               </label>
             </section>
 
-            <section class="flow-card summary-bridge" aria-labelledby="quickResultHeading">
+            <section class="flow-card summary-bridge v2c-card" aria-labelledby="quickResultHeading">
               <div class="flow-card-head">
                 <span class="step-badge">4</span>
                 <div>
@@ -404,7 +414,7 @@
           </form>
 
           <aside class="summary-stack">
-            <section class="summary-card summary-card-sticky" aria-labelledby="summaryHeading">
+            <section class="summary-card summary-card-sticky v2c-card" aria-labelledby="summaryHeading">
               <p class="section-kicker">Quick summary</p>
               <h3 id="summaryHeading">A calm snapshot while you edit</h3>
               <div class="summary-grid">
@@ -424,7 +434,7 @@
               <p id="summaryPlainEnglish" class="summary-copy">A small reduction can still matter when you compare two offers across a full year.</p>
             </section>
 
-            <section class="summary-card assumptions-card" aria-labelledby="methodHeading">
+            <section class="summary-card assumptions-card v2c-card" aria-labelledby="methodHeading">
               <p class="section-kicker">Method</p>
               <h3 id="methodHeading">What this result means</h3>
               <p id="methodCopy">Effective hourly rate = adjusted annual earnings divided by full-year contract hours, so different offers can be compared on a like-for-like basis.</p>
@@ -433,7 +443,7 @@
         </div>
       </section>
 
-      <section id="resultsSection" class="panel results-panel" aria-labelledby="resultsHeading">
+      <section id="resultsSection" class="panel results-panel v2c-surface" aria-labelledby="resultsHeading">
         <div class="panel-header">
           <div>
             <p class="section-kicker">Results</p>
@@ -442,7 +452,7 @@
           <p>The top number stays focused on the practical question: what is this offer really worth?</p>
         </div>
 
-        <section class="results-hero" aria-live="polite">
+        <section class="results-hero v2c-summary" aria-live="polite">
           <p class="results-kicker">Top result</p>
           <h3 id="effectiveRateHeadline">Your effective hourly rate is $93.75/hr</h3>
           <p id="rateGapHeadline" class="results-subtitle">That is $6.25/hr lower than the advertised contract rate.</p>
@@ -459,7 +469,7 @@
         <section id="compareResults" class="panel-nested compare-results-panel" hidden></section>
       </section>
 
-      <section id="learnSection" class="panel scroll-target-section" aria-labelledby="learnHeading">
+      <section id="learnSection" class="panel scroll-target-section v2c-surface" aria-labelledby="learnHeading">
         <div class="panel-header">
           <div>
             <p class="section-kicker">Learn</p>
@@ -495,7 +505,7 @@
         </div>
       </section>
 
-      <section class="panel" aria-labelledby="canadaContextHeading-rate-calculator">
+      <section class="panel v2c-surface" aria-labelledby="canadaContextHeading-rate-calculator">
         <div class="panel-header">
           <div>
             <p class="section-kicker">Canadian context</p>
@@ -523,7 +533,7 @@
       </section>
 
 
-      <section id="faqSection" class="panel" aria-labelledby="faqHeading">
+      <section id="faqSection" class="panel v2c-surface" aria-labelledby="faqHeading">
         <div class="panel-header">
           <div>
             <p class="section-kicker">FAQ</p>
@@ -567,7 +577,7 @@
         </div>
       </section>
 
-      <section class="panel" aria-labelledby="relatedHeading">
+      <section class="panel v2c-surface" aria-labelledby="relatedHeading">
         <div class="panel-header">
           <div>
             <p class="section-kicker">Related tools</p>
@@ -578,7 +588,7 @@
         <div id="relatedTools" class="related-grid"></div>
       </section>
 
-      <section class="panel" aria-labelledby="disclaimerHeading">
+      <section class="panel v2c-surface" aria-labelledby="disclaimerHeading">
         <div class="panel-header">
           <div>
             <p class="section-kicker">Disclaimer</p>
@@ -607,12 +617,15 @@
       </div>
 
       <div data-simplekit-support></div>
-      <div data-simplekit-footer></div>
+      
     </main>
   </div>
 
   <script src="./assets/js/simplekit-tool-links.js"></script>
   <script type="module" src="https://core.simplekit.app/core.js"></script>
   <script src="./assets/js/app.js" defer></script>
+
+<footer class="v2s-footer"><div class="v2s-wrap v2s-footer-inner"><div class="v2s-stack"><strong>SimpleKit</strong><p class="v2s-help">Free planning tools with clearer next steps.</p></div><div class="v2s-stack"><nav aria-label="Footer navigation"><a href="/tools/">Tools</a><a href="/learn/">Learn</a><a href="/methodology/">Methodology &amp; sources</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a></nav><p class="v2s-help">Estimates for planning, not financial advice. Financial inputs stay in your browser; existing site analytics are described in our privacy policy.</p></div></div></footer>
+<script defer src="https://core.simplekit.app/v2/calculators.js"></script>
 </body>
 </html>
