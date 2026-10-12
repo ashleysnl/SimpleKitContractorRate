@@ -288,6 +288,7 @@
       const expected = button.dataset.toggleValue === "true";
       const input = form.elements[target];
       button.classList.toggle("is-active", Boolean(input?.checked) === expected);
+      button.setAttribute("aria-pressed", String(Boolean(input?.checked) === expected));
     });
   }
 
